@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آژانس دیجیتال مارکتینگ</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        @import url('https://cdn.fontcdn.ir/Font/Persian/IRANSansWeb/IRANSansWeb.css');
+        
+        * {
+            font-family: 'IRANSansWeb', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0140c8 0%, #0056d6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #0140c8, #0056d6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(1, 64, 200, 0.3);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #0140c8, #0056d6);
+            box-shadow: 0 15px 30px rgba(1, 64, 200, 0.4);
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0140c8, #0056d6);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .achievement-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #64748b;
+            border: 2px dashed #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-image:hover {
+            border-color: #0140c8;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        }
+        
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .service-detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        
+        .service-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0140c8, #0056d6);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        
+        .service-feature:hover {
+            background: #f1f5f9;
+            transform: translateX(5px);
+        }
+        
+        .service-feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #0140c8, #0056d6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0140c8, #0056d6);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(1, 64, 200, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(1, 64, 200, 0.4);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 4rem 0;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gray-50">
+  <div class="min-h-full"><!-- Header -->
+   <header class="gradient-bg text-white relative">
+    <nav class="container mx-auto px-6 py-6 relative z-10">
+     <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-reverse space-x-4"><img src="https://i.postimg.cc/zHqJD8PF/digiwhale2.png" alt="لوگو دیجی وال" class="w-16 h-16 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+       <div class="logo-placeholder" style="display: none;">
+        DW
+       </div>
+       <h1 id="agency-name" class="text-2xl font-bold">آژانس برندینگ دیجی وال</h1>
+      </div>
+      <div class="hidden md:flex space-x-reverse space-x-8"><a href="#home" class="hover:text-blue-200 transition-colors px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10">خانه</a> <a href="#wiki" class="hover:text-blue-200 transition-colors px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10">ویکی مدیا</a> <a href="#services" class="hover:text-blue-200 transition-colors px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10">خدمات</a> <a href="#contact" class="hover:text-blue-200 transition-colors px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10">تماس با ما</a>
+      </div>
+     </div>
+    </nav><!-- Hero Section -->
+    <div class="container mx-auto px-6 py-20 text-center relative z-10">
+     <h2 id="hero-title" class="text-5xl md:text-6xl font-black mb-6 leading-tight">همراه شما در تمام مسیر</h2>
+     <p id="hero-subtitle" class="text-xl mb-10 opacity-90 max-w-3xl mx-auto leading-relaxed">آژانس برندینگ دیجی وال با تکیه بر تیمی مجرب، خلاق و توانمند، افتخار بیش از ۸ سال همکاری موفق با ده‌ها سازمان و شرکت معتبر را در کارنامه خود دارد</p><button class="btn-primary"> 🚀 مشاوره رایگان </button>
+    </div>
+   </header><!-- About Section -->
+   <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl font-black mb-8 text-gray-800">از خلاقیت تا تجربه</h2>
+      <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">آژانس برندینگ دیجی وال با تکیه بر تیمی مجرب، خلاق و توانمند، افتخار بیش از ۸ سال همکاری موفق با ده‌ها سازمان و شرکت معتبر را در کارنامه خود دارد. ما با هدف گسترش مرزهای همکاری، خدمات خود را در تمامی حوزه‌های تبلیغات دیجیتال و محیطی با شور و اشتیاق ادامه می‌دهیم.</p>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+     <h2 id="services-title" class="text-4xl font-black text-center mb-16 text-gray-800">خدمات ما</h2>
+     <div class="grid lg:grid-cols-2 gap-12"><!-- Strategy Service -->
+      <div class="service-detail-card">
+       <div class="service-icon mb-6"><span class="text-white text-3xl font-bold">۱</span>
+       </div>
+       <h3 class="text-2xl font-bold mb-4 text-gray-800">استراتژی</h3>
+       <p class="text-gray-600 mb-6 leading-relaxed">بدون مقصد مشخص، به بیراهه می‌رویم! در قدم اول اصلی‌ترین نیاز آنالیز مبدا، مقصد و مسیر است…</p>
+       <div class="space-y-3">
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">تحلیل و آنالیز رقبا</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">مانیتورینگ و آنالیز تبلیغات</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">تشخیص نیاز فراموش شده مخاطب</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">ایده‌پردازی متمایز</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">مشاوره و طراحی مسیر تبلیغاتی</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">توسعه و رشد</span>
+        </div>
+       </div>
+      </div><!-- Design Service -->
+      <div class="service-detail-card">
+       <div class="service-icon mb-6"><span class="text-white text-3xl font-bold">۲</span>
+       </div>
+       <h3 class="text-2xl font-bold mb-4 text-gray-800">دیزاین</h3>
+       <p class="text-gray-600 mb-6 leading-relaxed">«چگونگـی ارائـه محصـــول» تفاوت شما و رقیبان شماست! مردم خریدار حسی هستند که از شما می‌گیرند…</p>
+       <div class="space-y-3">
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی برند</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">پالت رنگی سازمانی</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">برندبوک</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">کارت ویزیت، بنر، مجله و …</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی UI سایت و اپلیکیشن</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی UX سایت و اپلیکیشن</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی لوگو</span>
+        </div>
+       </div>
+      </div><!-- Digital Service -->
+      <div class="service-detail-card">
+       <div class="service-icon mb-6"><span class="text-white text-3xl font-bold">۳</span>
+       </div>
+       <h3 class="text-2xl font-bold mb-4 text-gray-800">دیجیتال</h3>
+       <p class="text-gray-600 mb-6 leading-relaxed">دنیایی از امکان‌ها پیش روی شماست! و درخشیدن سهم کسی است که از زمان جا نمی‌ماند…</p>
+       <div class="space-y-3">
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">ساخت و توسعه وب‌سایت</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">ساخت و توسعه اپلیکیشن</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">ساخت و توسعه وب‌اپلیکیشن</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">خدمات سئو</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">Flutter</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">NextJS &amp; React</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">Laravel</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">Html/CSS</span>
+        </div>
+       </div>
+      </div><!-- Content Service -->
+      <div class="service-detail-card">
+       <div class="service-icon mb-6"><span class="text-white text-3xl font-bold">۴</span>
+       </div>
+       <h3 class="text-2xl font-bold mb-4 text-gray-800">محتوا</h3>
+       <p class="text-gray-600 mb-6 leading-relaxed">هــدف رفع نیاز است؟ یا ایجاد نیاز در ذهن مخاطــب؟ داستان خوب هر غیـرممکنی را ممکـن می‌کند…</p>
+       <div class="space-y-3">
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">تدوین</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">موشن گرافیک</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">ساخت تیزرهای تبلیغاتی</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">جلوه‌های ویژه بصری (VFX)</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">نریشن</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی امضای صوتی</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">طراحی آمبیانس صوتی</span>
+        </div>
+        <div class="service-feature">
+         <div class="service-feature-icon">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
+          </svg>
+         </div><span class="text-gray-700">آهنگسازی و ساخت موسیقی یونیک</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Team Section -->
+   <section id="team" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+     <div class="text-center mb-16">
+      <h2 id="team-title" class="text-4xl font-black mb-8 text-gray-800">کادر مجرب ما، نیروی محرکه موفقیت شما</h2>
+      <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">کارشناسان آژانس برندینگ دیجی وال متشکل از متخصصان باتجربه و متعهد، همواره با دانش عمیق و خلاقیت بی‌نظیر خود، مسیر موفقیت برندها را هموار می‌کنند. هر عضو از کادر متحصص دیجی وال، با سابقه‌ای درخشان در حوزه تخصصی خود، تضمین‌کننده ارائه خدمات با کیفیت و نتایجی پایدار برای موسسات مختلف بوده است.</p>
+      <p class="text-lg text-blue-600 font-semibold mt-6">اعتماد شما به تیم ما، آغازگر تحولی ماندگار در مسیر رشد برندتان خواهد بود.</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto"><!-- Team Member 1 -->
+      <div class="card-hover p-8 text-center">
+       <div class="team-avatar text-white mb-6">
+        🎨
+       </div>
+       <h3 class="text-xl font-bold mb-2 text-gray-800">سارا بکشلو</h3>
+       <p class="text-blue-600 font-semibold mb-4">گرافیست، تدوینگر، ایده‌پرداز</p>
+       <p class="text-gray-600 text-sm leading-relaxed">متخصص طراحی گرافیک، تدوین و ایده‌پردازی خلاقانه با سال‌ها تجربه در حوزه بصری</p>
+      </div><!-- Team Member 2 -->
+      <div class="card-hover p-8 text-center">
+       <div class="team-avatar text-white mb-6">
+        💻
+       </div>
+       <h3 class="text-xl font-bold mb-2 text-gray-800">هستی اکبری</h3>
+       <p class="text-blue-600 font-semibold mb-4">برنامه نویس، برندساز، ایده‌پرداز</p>
+       <p class="text-gray-600 text-sm leading-relaxed">متخصص برنامه‌نویسی، برندسازی و ایده‌پردازی با تسلط بر جدیدترین تکنولوژی‌ها</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-20 gradient-bg text-white relative">
+    <div class="container mx-auto px-6 relative z-10">
+     <div class="text-center mb-12">
+      <h2 class="text-4xl font-black mb-6">تا مشاوره رایگان فقط چند کلیک فاصله دارید!</h2>
+      <p class="text-xl opacity-90 max-w-4xl mx-auto leading-relaxed">ما اینجا هستیم تا به شما کمک کنیم. اگر سوالی دارید یا به مشاوره رایگان نیاز دارید، کافیست اطلاعات خود را وارد کنید تا کارشناسان ما در سریع‌ترین زمان ممکن با شما تماس بگیرند.</p>
+      <p class="text-lg font-semibold mt-4 text-blue-200">فرصت را از دست ندهید و قدمی به سوی تصمیم‌گیری بهتر بردارید!</p>
+     </div>
+     <div class="max-w-2xl mx-auto">
+      <form id="contact-form" action="https://formspree.io/f/mrbrbalz" method="POST" class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
+       <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div><label for="name" class="block text-sm font-semibold mb-2 text-white">نام</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:border-transparent transition-all" placeholder="نام خود را وارد کنید">
+        </div>
+        <div><label for="phone" class="block text-sm font-semibold mb-2 text-white">شماره تماس</label> <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:border-transparent transition-all" placeholder="شماره تماس خود را وارد کنید">
+        </div>
+       </div>
+       <div class="mb-6"><label for="email" class="block text-sm font-semibold mb-2 text-white">آدرس ایمیل</label> <input type="email" id="email" name="_replyto" required class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:border-transparent transition-all" placeholder="ایمیل خود را وارد کنید">
+       </div>
+       <div class="mb-8"><label for="message" class="block text-sm font-semibold mb-2 text-white">پیام</label> <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:border-transparent transition-all resize-none" placeholder="پیام خود را بنویسید..."></textarea>
+       </div><!-- Hidden fields for Formspree --> <input type="hidden" name="_subject" value="درخواست مشاوره از وب‌سایت دیجی وال"> <input type="hidden" name="_next" value="#contact">
+       <div class="text-center"><button type="submit" class="btn-primary bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-bold"> 🚀 ارسال درخواست مشاوره </button>
+       </div>
+       <div id="form-message" class="mt-4 text-center hidden"></div>
+      </form>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-gray-900 text-white py-16">
+    <div class="container mx-auto px-6">
+     <div class="grid md:grid-cols-4 gap-8">
+      <div>
+       <h3 class="text-xl font-bold mb-4 text-blue-400">آژانس برندینگ دیجی وال</h3>
+       <p class="text-gray-300 text-sm leading-relaxed">همراه شما در تمام مسیر رشد و موفقیت برند</p>
+      </div>
+      <div>
+       <h4 class="font-bold mb-4">خدمات</h4>
+       <ul class="space-y-2 text-gray-300 text-sm">
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">استراتژی و تحلیل</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">طراحی و برندینگ</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">توسعه دیجیتال</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">تولید محتوا</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-bold mb-4">شرکت</h4>
+       <ul class="space-y-2 text-gray-300 text-sm">
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">درباره ما</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">تیم ما</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">خدمات</li>
+        <li class="hover:text-blue-400 transition-colors cursor-pointer">تماس با ما</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-bold mb-4">تماس</h4>
+       <ul class="space-y-2 text-gray-300 text-sm">
+        <li class="flex items-center"><span class="text-blue-400 ml-2">📞</span> ۰۲۱-۱۲۳۴۵۶۷۸</li>
+        <li class="flex items-center"><span class="text-blue-400 ml-2">📧</span> info@zhbranding.ir</li>
+        <li class="flex items-center"><span class="text-blue-400 ml-2">📍</span> تهران، ایران</li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+      <p class="text-gray-400 text-sm">© ۱۴۰۳ آژانس برندینگ دیجی وال. تمامی حقوق محفوظ است.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            agency_name: "آژانس برندینگ دیجی وال",
+            hero_title: "همراه شما در تمام مسیر",
+            hero_subtitle: "آژانس برندینگ دیجی وال با تکیه بر تیمی مجرب، خلاق و توانمند، افتخار بیش از ۸ سال همکاری موفق با ده‌ها سازمان و شرکت معتبر را در کارنامه خود دارد",
+            services_title: "خدمات ما",
+            team_title: "کادر مجرب ما، نیروی محرکه موفقیت شما",
+            primary_color: "#0140c8",
+            secondary_color: "#0056d6",
+            background_color: "#f9fafb",
+            text_color: "#1f2937",
+            accent_color: "#0140c8",
+            font_family: "IRANSansWeb",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            // Update text content
+            const agencyName = config.agency_name || defaultConfig.agency_name;
+            const heroTitle = config.hero_title || defaultConfig.hero_title;
+            const heroSubtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
+            const servicesTitle = config.services_title || defaultConfig.services_title;
+            const teamTitle = config.team_title || defaultConfig.team_title;
+
+            document.getElementById('agency-name').textContent = agencyName;
+            document.getElementById('hero-title').textContent = heroTitle;
+            document.getElementById('hero-subtitle').textContent = heroSubtitle;
+            document.getElementById('services-title').textContent = servicesTitle;
+            document.getElementById('team-title').textContent = teamTitle;
+
+            // Update colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+
+            // Apply colors to elements
+            const gradientElements = document.querySelectorAll('.gradient-bg');
+            gradientElements.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+            });
+
+            const serviceIcons = document.querySelectorAll('.service-icon');
+            serviceIcons.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+            });
+
+            const teamAvatars = document.querySelectorAll('.team-avatar');
+            teamAvatars.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+            });
+
+            const btnPrimary = document.querySelectorAll('.btn-primary');
+            btnPrimary.forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+            });
+
+            document.body.style.backgroundColor = backgroundColor;
+            document.body.style.color = textColor;
+
+            // Update font
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            
+            document.body.style.fontFamily = `${customFont}, sans-serif`;
+            document.body.style.fontSize = `${baseSize}px`;
+
+            // Scale headings proportionally
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => el.style.fontSize = `${baseSize * 1.5}px`);
+            
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => el.style.fontSize = `${baseSize * 2}px`);
+            
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => el.style.fontSize = `${baseSize * 1.25}px`);
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            window.elementSdk.setConfig({ accent_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["agency_name", config.agency_name || defaultConfig.agency_name],
+                ["hero_title", config.hero_title || defaultConfig.hero_title],
+                ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                ["services_title", config.services_title || defaultConfig.services_title],
+                ["team_title", config.team_title || defaultConfig.team_title]
+            ]);
+        }
+
+        // Initialize SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Contact form functionality
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const formMessage = document.getElementById('form-message');
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = '⏳ در حال ارسال...';
+            submitButton.disabled = true;
+            
+            // Show loading message
+            formMessage.innerHTML = '<div class="bg-blue-500 bg-opacity-20 border border-blue-400 text-blue-100 px-6 py-4 rounded-xl">⏳ در حال ارسال پیام...</div>';
+            formMessage.classList.remove('hidden');
+            
+            // Let the form submit naturally to Formspree
+            // The form will redirect or show Formspree's success page
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99dd132583095d92',t:'MTc2MzAyNDM4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
